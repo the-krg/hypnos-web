@@ -1,0 +1,13 @@
+.welcome-title__text {
+  color: #F7F7F7;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+
+  &--small {
+    font-size: 1rem;
+  }
+
+  &--big {
+    font-size: 3rem;
+  }
+}
