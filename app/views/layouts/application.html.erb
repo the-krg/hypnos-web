@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HypnosWeb</title>
+    <title>Hypnos</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -13,5 +13,32 @@
 
   <body>
     <%= yield %>
+
+    <div class="fixed-action-btn" style="bottom: 86px;">
+      <a class="btn-floating btn-large waves-effect waves-light deep-orange accent-4">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+
+    <footer class="page-footer teal">
+      <div class="row" id="frow" style="margin-bottom:0px;">
+        <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
+          <ul class="tabs tabs-fixed-width transparent white-text">
+            <li class="tab col s3 white-text"><a href="#test1" class="active white-text"><i class="material-icons">account_circle</i></a></li>
+            <li class="tab col s3"><a href="#test2" class="white-text"><i class="material-icons">bookmark_border</i></a></li>
+            <li class="tab col s3">
+              <%= link_to root_path, class: 'white-text' do %>
+                <i class="material-icons">home</i>
+              <% end %>
+            </li>
+            <li class="tab col s3">
+              <%= link_to settings_path, class: 'white-text' do %>
+                <i class="material-icons">account_circle</i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

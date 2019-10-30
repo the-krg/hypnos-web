@@ -1,0 +1,17 @@
+@import "titles";
+
+.logout-button {
+  border: 1px solid coral;
+  border-radius: 3px;
+  display: block;
+  height: 3rem;
+  text-align: center;
+  color: coral;
+  line-height: 3rem;
+
+  &:hover {
+    background-color: darkred;
+    transition: 1s;
+    cursor: pointer;
+  }
+}

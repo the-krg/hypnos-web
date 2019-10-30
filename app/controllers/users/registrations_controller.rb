@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  layout 'outside'
 
   # GET /resource/sign_up
   # def new
@@ -10,9 +11,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if sign_up_params[:password] == sign_up_params[:password_confirmation]
+      super
+    else
+      flash.now[:warning] = 'As senhas são incompatíveis.'
+    end
+  end
 
   # GET /resource/edit
   # def edit

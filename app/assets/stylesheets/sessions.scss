@@ -1,13 +1,16 @@
-.welcome-title__text {
-  color: #F7F7F7;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: lighter;
+@import "titles";
 
-  &--small {
-    font-size: 1rem;
+.sessions-page {
+  margin: 4rem;
+
+  &__actions {
+    text-align: right;
+    margin: 2rem 0;
   }
 
-  &--big {
-    font-size: 3rem;
+  &__register {
+    text-decoration: underline;
+    text-align: center;
+    font-size: 0.8rem;
   }
 }

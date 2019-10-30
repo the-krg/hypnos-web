@@ -19,5 +19,21 @@
 
 body {
   background-color: #121212;
+  min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
+}
+
+section {
+  margin: 2rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  min-width: 100%;
+}
+
+.input-field > input {
+  color: #F7F7F7;
+  font-weight: lighter;
 }
