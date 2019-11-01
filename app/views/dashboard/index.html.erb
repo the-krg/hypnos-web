@@ -42,4 +42,19 @@
           }
       });
   </script>
+  <div class="fixed-action-btn" style="bottom: 86px;">
+    <%= link_to new_night_path, class: 'btn-floating btn-large waves-effect waves-light deep-orange accent-4' do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
 </section>
+
+<%- if notice.present? %>
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          M.AutoInit();
+
+          M.toast({html: "<%= notice.to_s %>"});
+      });
+  </script>
+<% end %>

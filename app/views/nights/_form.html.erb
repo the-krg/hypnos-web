@@ -1,0 +1,42 @@
+<%= form_with(model: night, local: true) do |form| %>
+  <div class="text-center">
+    <% (1..5).each do |i| %>
+      <label style="display: inline-block">
+        <%= form.radio_button("quality", i, { class: 'with-gap' }) %>
+        <span><%= i %></span>
+      </label>
+    <% end %>
+  </div>
+  <div class="input-field row">
+    <div class="hour-label col s9">Que horas você dormiu?</div>
+    <%= form.time_field("sleep_hour", { class: 'col s3'}) %>
+  </div>
+  <div class="input-field row">
+    <div class="hour-label col s9">Que horas você acordou?</div>
+    <%= form.time_field("wake_hour", { class: 'col s3'}) %>
+  </div>
+
+  <div class="input-field row">
+    <div class="hour-label col s9">Você se lembra do seu sonho?</div>
+    <div class="col s3">
+      <select style="color: white">
+        <option value="false" selected>Não</option>
+        <option value="true">Sim</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <label for="textarea1">Gostaria de descrevê-lo?</label>
+    </div>
+  </div>
+
+  <div class="fixed-action-btn" style="bottom: 86px;">
+    <%= form.button type: 'submit', class: 'btn-floating btn-large waves-effect waves-light deep-orange accent-4' do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
+<% end %>

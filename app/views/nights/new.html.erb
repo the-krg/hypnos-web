@@ -1,0 +1,20 @@
+<section>
+
+  <div class="welcome-title__text">
+    <div class="welcome-title__text--medium">
+      <%= "Olá, #{current_user.username}!" %>
+    </div>
+    <div class="welcome-title__text--small">
+      Como foi sua noite?
+    </div>
+  </div>
+
+  <%= render 'form', night: @night %>
+</section>
+
+<script>
+
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems);
+
+</script>

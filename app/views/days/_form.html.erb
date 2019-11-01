@@ -1,0 +1,42 @@
+<%= form_with(model: day, local: true) do |form| %>
+  <% if day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
+
+      <ul>
+        <% day.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :quality %>
+    <%= form.number_field :quality %>
+  </div>
+
+  <div class="field">
+    <%= form.label :different %>
+    <%= form.check_box :different %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exercised %>
+    <%= form.check_box :exercised %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ill %>
+    <%= form.check_box :ill %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

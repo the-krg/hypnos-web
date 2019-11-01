@@ -33,7 +33,16 @@ footer {
   min-width: 100%;
 }
 
-.input-field > input {
+.input-field > input,textarea {
   color: #F7F7F7;
   font-weight: lighter;
+}
+
+.select-wrapper > input {
+  color: #F7F7F7;
+  font-weight: lighter;
+}
+
+.text-center {
+  text-align: center;
 }
