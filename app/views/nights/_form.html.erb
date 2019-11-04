@@ -16,16 +16,13 @@
     <%= form.time_field("wake_hour", { class: 'col s3'}) %>
   </div>
 
+
   <div class="input-field row">
     <div class="hour-label col s9">Você se lembra do seu sonho?</div>
     <div class="col s3">
-      <select style="color: white">
-        <option value="false" selected>Não</option>
-        <option value="true">Sim</option>
-      </select>
+      <%= select_tag :dream, options_for_select({ "não": false, "sim": true }), style: 'color: white' %>
     </div>
   </div>
-
 
   <div class="row">
     <div class="input-field col s12">

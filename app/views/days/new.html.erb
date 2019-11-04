@@ -1,5 +1,16 @@
-<h1>New Day</h1>
+<section>
+  <div class="header-spacing-2"></div>
+  <div class="welcome-title__text">
+    <div class="welcome-title__text--medium">
+      Registrar meu dia
+    </div>
+  </div>
+  <%= render 'form', day: @day %>
+</section>
 
-<%= render 'form', day: @day %>
+<script>
 
-<%= link_to 'Back', days_path %>
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+
+</script>

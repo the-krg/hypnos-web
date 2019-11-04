@@ -23,6 +23,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.height-without-bar {
+  min-height: calc(~"100vh - 150px");
+}
+
 section {
   margin: 2rem;
 }
@@ -31,6 +35,23 @@ footer {
   position: fixed;
   bottom: 0;
   min-width: 100%;
+}
+
+.header-spacing {
+  &-1 {
+    height: 1rem;
+    display: block;
+  }
+
+  &-2 {
+    height: 2rem;
+    display: block;
+  }
+
+  &-3 {
+    height: 3rem;
+    display: block;
+  }
 }
 
 .input-field > input,textarea {

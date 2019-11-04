@@ -1,42 +1,45 @@
 <%= form_with(model: day, local: true) do |form| %>
-  <% if day.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
+  <p class="hour-label">
+    Que nota você daria para o seu dia?
+  </p>
+  <div class="text-center">
+    <% (1..5).each do |i| %>
+      <label style="display: inline-block">
+        <%= form.radio_button("quality", i, { class: 'with-gap' }) %>
+        <span><%= i %></span>
+      </label>
+    <% end %>
+  </div>
 
-      <ul>
-        <% day.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="input-field row">
+    <div class="hour-label col s9">Eu fiz algo novo ou diferente?</div>
+    <div class="col s3">
+      <%= select_tag :different, options_for_select({ "não": false, "sim": true }), style: 'color: white' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= form.label :quality %>
-    <%= form.number_field :quality %>
+  <div class="input-field row">
+    <div class="hour-label col s9">Eu me exercitei?</div>
+    <div class="col s3">
+      <%= select_tag :exercised, options_for_select({ "não": false, "sim": true }), style: 'color: white' %>
+    </div>
+  </div>
+
+  <div class="input-field row">
+    <div class="hour-label col s9">Eu estou doente?</div>
+    <div class="col s3">
+      <%= select_tag :ill, options_for_select({ "não": false, "sim": true }), style: 'color: white' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :different %>
-    <%= form.check_box :different %>
+    <%= form.label :description, "Gostaria de registrar algo sobre hoje?" %>
+    <%= form.text_area :description, class: 'materialize-textarea' %>
   </div>
 
-  <div class="field">
-    <%= form.label :exercised %>
-    <%= form.check_box :exercised %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ill %>
-    <%= form.check_box :ill %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="fixed-action-btn" style="bottom: 86px;">
+    <%= form.button type: 'submit', class: 'btn-floating btn-large waves-effect waves-light deep-orange accent-4' do %>
+      <i class="large material-icons">add</i>
+    <% end %>
   </div>
 <% end %>
