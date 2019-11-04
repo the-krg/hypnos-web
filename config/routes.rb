@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   get '/settings', to: 'dashboard#settings'
+  get '/calendar', to: 'dashboard#calendar'
 end

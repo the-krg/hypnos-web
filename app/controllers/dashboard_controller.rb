@@ -4,4 +4,6 @@ class DashboardController < ApplicationController
   def settings
 
   end
+
+  def calendar; end
 end

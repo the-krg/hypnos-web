@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <% %w(J F M A M J J A S O N D).each do |month| %>
+        <th style="color: #333; background-color: #F7F7F7; text-align: center;">
+          <%= month %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% (1..372).to_a.each_slice(12) do |days| %>
+      <tr>
+        <% days.each do |day| %>
+          <td>
+            <%= day %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
