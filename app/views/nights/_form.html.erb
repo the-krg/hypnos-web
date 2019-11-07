@@ -1,4 +1,7 @@
 <%= form_with(model: night, local: true) do |form| %>
+  <p class="hour-label">
+    Que nota você daria para sua noite de sono?
+  </p>
   <div class="text-center">
     <% (1..5).each do |i| %>
       <label style="display: inline-block">

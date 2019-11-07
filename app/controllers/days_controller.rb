@@ -25,11 +25,12 @@ class DaysController < ApplicationController
   # POST /days.json
   def create
     @day = Day.new(day_params)
+    @day.user = current_user
 
     respond_to do |format|
       if @day.save
-        format.html { redirect_to @day, notice: 'Day was successfully created.' }
-        format.json { render :show, status: :created, location: @day }
+        format.html { redirect_to root_path, notice: 'Day was successfully created.' }
+        format.json { render :show, status: :created, location: root_path }
       else
         format.html { render :new }
         format.json { render json: @day.errors, status: :unprocessable_entity }
