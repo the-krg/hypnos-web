@@ -1,41 +1,51 @@
 <section style="margin: 2rem;">
   <div class="welcome-title__text">
-    <div class="welcome-title__text--big"><%= "Bom dia, #{current_user.username}!" %></div>
+    <div class="welcome-title__text--big">
+      <%= night? ? 'Boa noite!' : 'Bom dia!' %>
+    </div>
   </div>
   <canvas id="myChart" width="400" height="400"></canvas>
+  <div class="welcome-title__text">
+    <div class="welcome-title__text--small">
+      Ainda não há dados o suficiente para conclusões. Aguarde alguns dias que traremos informações ;)
+    </div>
+  </div>
   <script>
+      var json = <%= @json.to_json.html_safe %>;
       var ctx = document.getElementById('myChart');
       var myChart = new Chart(ctx, {
           type: 'bar',
           data: {
-              labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+              labels: json.labels,
               datasets: [{
-                  label: '# of Votes',
-                  data: [12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
-                      'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
-                      'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
-                  ],
+                  label: 'Noite',
+                  data: json.nights,
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderColor: 'rgba(54, 162, 235, 1)',
                   borderWidth: 1
+              },
+              {
+                  label: 'Dia',
+                  data: json.days,
+                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  borderWidth: 1
+              },
+              {
+                  label: 'Média',
+                  data: json.average,
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                  borderWidth: 0.5,
+                  type: 'line',
               }]
           },
           options: {
               scales: {
                   yAxes: [{
                       ticks: {
-                          beginAtZero: true
+                          beginAtZero: true,
+                          stepSize: 1
                       }
                   }]
               }
@@ -43,18 +53,14 @@
       });
   </script>
   <div class="fixed-action-btn" style="bottom: 86px;">
-    <%= link_to new_night_path, class: 'btn-floating btn-large waves-effect waves-light deep-orange accent-4' do %>
-      <i class="large material-icons">add</i>
+    <%- if night? %>
+      <%= link_to new_day_path, class: 'btn-floating btn-large waves-effect waves-light blue darken-4 accent-4' do %>
+        <i class="large material-icons">add</i>
+      <% end %>
+    <% else %>
+      <%= link_to new_night_path, class: 'btn-floating btn-large waves-effect waves-light deep-orange accent-4' do %>
+        <i class="large material-icons">add</i>
+      <% end %>
     <% end %>
   </div>
 </section>
-
-<%- if notice.present? %>
-  <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          M.AutoInit();
-
-          M.toast({html: "<%= notice.to_s %>"});
-      });
-  </script>
-<% end %>
