@@ -8,7 +8,7 @@ class CreateNights < ActiveRecord::Migration[6.0]
       t.integer :quality
       t.integer :ill
       t.text :description
-      t.text :dream
+      t.boolean :dream
 
       t.timestamps
     end

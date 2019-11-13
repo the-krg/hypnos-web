@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_034445) do
     t.integer "quality"
     t.integer "ill"
     t.text "description"
-    t.text "dream"
+    t.boolean "dream"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_nights_on_user_id"
