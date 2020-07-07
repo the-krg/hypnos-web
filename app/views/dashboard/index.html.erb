@@ -4,49 +4,13 @@
       <%= night? ? 'Boa noite!' : 'Bom dia!' %>
     </div>
   </div>
-  <div class="welcome-title__text">
-    <div class="welcome-title__text--small">
-      <p>Qualidade do dia e noite</p>
-      por dia da semana
-    </div>
-    <canvas id="qualityChart" width="400" height="400"></canvas>
-    <div class="welcome-title__text--small">
-      <p>Nos últimos 7 dias (dias sem registro são desconsiderados)</p>
-      <% days_quality = @json[:day_quality] - [0] %>
-      <% nights_quality = @json[:night_quality] - [0] %>
-      <p>A qualidade média dos seus dias foi <%= days_quality.sum/days_quality.size %></p>
-      <p>A qualidade média das suas noites foi <%= nights_quality.sum/nights_quality.size %></p>
-    </div>
-    <br/>
-    <div class="welcome-title__text--small">
-      <p>Qualidade do dia e noite</p>
-      por dia da semana
-    </div>
-    <br/>
-    <div class="welcome-title__text--small">
-      <p>Tempo &times; qualidade de sono &times; qualidade de dia</p>
-      por dia da semana
-    </div>
-    <canvas id="sleepChart" width="400" height="400"></canvas>
-    <div class="welcome-title__text--small">
-      <p>Nos últimos 7 dias (dias sem registro são desconsiderados)</p>
-      <% sleep_time = @json[:sleep_time] - [0] %>
-      <% sleep_time_avg = sleep_time.sum/sleep_time.size %>
-      <p>O tempo médio do seu sono foi <%= sleep_time_avg %></p>
-      <p>
-        A OMS recomenda um tempo de sono entre 7 a 9 horas, seu sono está
-        <% if sleep_time_avg > 9 %>
-          acima
-        <% elsif sleep_time_avg < 7 %>
-          abaixo
-        <% else %>
-          dentro
-        <% end %>
-        do tempo recomendado.
-      </p>
-    </div>
 
+  <div class="welcome-title__text">
+    <%= render 'day_night_quality' %>
+    <br/>
+    <%= render 'sleep_quality' %>
   </div>
+
   <script>
       let json = <%= @json.to_json.html_safe %>;
       let qchart = document.getElementById('qualityChart');
