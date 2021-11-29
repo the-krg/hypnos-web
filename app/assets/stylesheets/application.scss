@@ -17,6 +17,8 @@
 @import "bulma";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 
+html { background-color: #121212; }
+
 body {
   background-color: #121212;
   min-height: 100vh;
@@ -62,4 +64,39 @@ footer {
 
 .text-center {
   text-align: center;
+}
+
+.year {
+  text-align: center;
+  margin: 2rem 1rem 6rem 1rem;
+}
+
+
+.month-day {
+  background: #9e9e9e;
+  margin: 1px;
+
+  &.zero {
+    background: rgba(0,0,0,0);
+  }
+
+  &.horrible {
+    background: #d55454 !important;
+  }
+
+  &.bad {
+    background: #ff8559 !important;
+  }
+
+  &.ok {
+    background: #fff268 !important;
+  }
+
+  &.good {
+    background: #c8ff6e !important;
+  }
+
+  &.excellent {
+    background: #6bff60 !important;
+  }
 }

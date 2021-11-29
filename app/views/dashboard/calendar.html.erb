@@ -1,34 +1,38 @@
 <% current_year = Date.today.year %>
 
-<div class="year columns is-mobile is-gapless">
-  <% %w(J F M A M J J A S O N D).each_with_index do |abbr, index| %>
-    <div class="month column">
-      <div class="month-header">
-        <%= abbr %>
+<div class="year">
+  <div class="columns is-mobile is-gapless">
+    <% %w(J F M A M J J A S O N D).each_with_index do |abbr, index| %>
+      <div class="month column">
+        <div class="month-header">
+          <%= abbr %>
+        </div>
+        <div class="month-body">
+          <% Time.days_in_month(index + 1, current_year).times do |day| %>
+            <% color = ['zero', 'horrible', 'bad', 'ok', 'good', 'excellent'].sample %>
+            <div class="month-day <%= color %>">
+              .
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="month-body">
-        <% Time.days_in_month(index + 1, current_year).times do |day| %>
-          <div class="month-day">
-            <%= day %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <style>
+  .month {
+    margin: 3px;
+  }
+
   .month-header {
     font-size: 1rem;
+    margin: 1px;
     background: white;
   }
 
   /*.month-body {*/
   /*  display: inline-block;*/
   /*}*/
-
-  .month-day {
-    background: #9e9e9e;
-  }
 
 </style>
