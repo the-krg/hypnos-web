@@ -2,6 +2,19 @@
 
 <div class="year">
   <div class="columns is-mobile is-gapless">
+    <div class="month column">
+        <div class="month-header">
+           
+        </div>
+        <div class="month-body">
+          <% 31.times do |day| %>
+            <div class="month-day white">
+              <%= day + 1%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     <% %w(J F M A M J J A S O N D).each_with_index do |abbr, index| %>
       <div class="month column">
         <div class="month-header">
@@ -11,7 +24,7 @@
           <% Time.days_in_month(index + 1, current_year).times do |day| %>
             <% color = ['zero', 'horrible', 'bad', 'ok', 'good', 'excellent'].sample %>
             <div class="month-day <%= color %>">
-              .
+               
             </div>
           <% end %>
         </div>
