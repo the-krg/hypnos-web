@@ -1,21 +1,41 @@
-<div class="welcome-title__text--small">
-  <p>Qualidade do dia e noite</p>
-  por dia da semana
-</div>
-<canvas id="qualityChart" width="400" height="400"></canvas>
-<div class="welcome-title__text--small">
-  <p>Nos últimos 7 dias (dias sem registro são desconsiderados)</p>
-  <% days_quality = @json[:day_quality] - [0] %>
-  <% nights_quality = @json[:night_quality] - [0] %>
-  <%- if days_quality.size > 0 %>
-    <p>A qualidade média dos seus dias foi <%= days_quality.sum/days_quality.size %></p>
-  <%- else %>
-    <p>Você não registrou nenhum dia na última semana.</p>
-  <% end %>
+<div class="card">
+  <header class="card-header">
+    <div class="card-header-title">
+      <div class="welcome-title__text--small">
+        <p>Qualidade do dia e noite</p>
+        por dia da semana
+      </div>
+    </div>
+    <div class="card-header-icon" aria-label="more options" id="collapseDayNight">
+      <span class="material-icons">
+        expand_more
+      </span>
+    </div>
+  </header>
 
-  <%- if nights_quality.size > 0 %>
-    <p>A qualidade média das suas noites foi <%= nights_quality.sum/nights_quality.size %></p>
-  <%- else %>
-    <p>Você não registrou nenhuma noite na última semana.</p>
-  <% end %>
+  <div class="card-content collapse show" id="contentDayNight">
+    <canvas id="qualityChart" width="400" height="400"></canvas>
+    <div class="welcome-title__text--small">
+      <p>Nos últimos 7 dias (dias sem registro são desconsiderados)</p>
+      <% days_quality = @json[:day_quality] - [0] %>
+      <% nights_quality = @json[:night_quality] - [0] %>
+      <%- if days_quality.size > 0 %>
+        <p>A qualidade média dos seus dias foi <%= days_quality.sum/days_quality.size %></p>
+      <%- else %>
+        <p>Você não registrou nenhum dia na última semana.</p>
+      <% end %>
+
+      <%- if nights_quality.size > 0 %>
+        <p>A qualidade média das suas noites foi <%= nights_quality.sum/nights_quality.size %></p>
+      <%- else %>
+        <p>Você não registrou nenhuma noite na última semana.</p>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+<script>
+  document.getElementById('collapseDayNight').addEventListener('click', function() {
+    document.getElementById('contentDayNight').classList.toggle('show');
+  })
+</script>

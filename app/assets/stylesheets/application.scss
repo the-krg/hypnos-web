@@ -88,3 +88,17 @@ footer {
   &.good { background: #c8ff6e !important; }
   &.excellent { background: #6bff60 !important; }
 }
+
+.collapse {
+  display: block;
+  max-height: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+
+  &.show {
+    padding: 24px !important;
+    max-height: 99em;
+    transition: max-height 1s ease-in-out;
+  }
+}
