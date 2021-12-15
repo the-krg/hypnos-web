@@ -17,85 +17,99 @@
       let qchart = document.getElementById('qualityChart');
       let schart = document.getElementById('sleepChart');
       let qualityChart = new Chart(qchart, {
-          type: 'bar',
-          data: {
-              labels: json.labels,
-              datasets: [{
-                  label: 'Noite',
-                  data: json.nights,
-                  backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                  borderColor: 'rgba(54, 162, 235, 1)',
-                  borderWidth: 1
-              },
-              {
-                  label: 'Dia',
-                  data: json.days,
-                  backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                  borderColor: 'rgba(255, 99, 132, 1)',
-                  borderWidth: 1
-              },
-              {
-                  label: 'Média',
-                  data: json.average_quality,
-                  borderColor: 'rgba(75, 192, 192, 1)',
-                  backgroundColor: 'rgba(75, 192, 192, 0.5)',
-                  borderWidth: 0.5,
-                  type: 'line',
-              }]
-          },
-          options: {
-              scales: {
-                  y: {
-                      ticks: {
-                          beginAtZero: true,
-                          stepSize: 1
-                      }
+        type: 'bar',
+        data: {
+          labels: json.labels,
+          datasets: [{
+            label: 'Noite',
+            data: json.nights,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }, {
+            label: 'Dia',
+            data: json.days,
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+          }, {
+            label: 'Média',
+            data: json.average_quality,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+            borderWidth: 0.5,
+              type: 'line',
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              ticks: {
+                beginAtZero: true,
+                stepSize: 1,
+                font: {
+                  size: '18'
+                },
+                callback: function(label, index, labels) {
+                  switch (label) {
+                    case 0:
+                      return '';
+                    case 1:
+                      return '😞';
+                    case 2:
+                      return '😕';
+                    case 3:
+                      return '🙂';
+                    case 4:
+                      return '😁';
+                    case 5:
+                      return '🥳';
                   }
-              },
-              plugins: {
-             annotation: {
-                annotations: [{
-                    type: 'box',
-                    drawTime: 'beforeDatasetsDraw',
-                    yMin: 0,
-                    yMax: 1,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(255, 105, 105, 0.3)'
-                },
-                {
-                    type: 'box',
-                    drawTime: 'beforeDatasetsDraw',
-                    yMin: 1,
-                    yMax: 2,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(255, 149, 79, 0.3)'
-                },
-                {
-                    type: 'box',
-                    drawTime: 'beforeDatasetsDraw',
-                    yMin: 2,
-                    yMax: 3,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(255, 215, 94, 0.3)'
                 }
-                ,{
-                    type: 'box',
-                    drawTime: 'beforeDatasetsDraw',
-                    yMin: 3,
-                    yMax: 4,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(203, 255, 107, 0.3)'
-                },
-                {
-                    type: 'box',
-                    drawTime: 'beforeDatasetsDraw',
-                    yMin: 4,
-                    yMax: 5,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(92, 255, 97, 0.3)'
-                }]
-            }}
+              }
+            }
+          },
+          plugins: {
+            annotation: {
+              annotations: [{
+                type: 'box',
+                drawTime: 'beforeDatasetsDraw',
+                yMin: 0,
+                yMax: 1,
+                borderWidth: 0,
+                backgroundColor: 'rgba(255, 105, 105, 0.3)'
+              }, {
+                type: 'box',
+                drawTime: 'beforeDatasetsDraw',
+                yMin: 1,
+                yMax: 2,
+                borderWidth: 0,
+                backgroundColor: 'rgba(255, 149, 79, 0.3)'
+              }, {
+                type: 'box',
+                drawTime: 'beforeDatasetsDraw',
+                yMin: 2,
+                yMax: 3,
+                borderWidth: 0,
+                backgroundColor: 'rgba(255, 215, 94, 0.3)'
+              }, {
+                type: 'box',
+                drawTime: 'beforeDatasetsDraw',
+                yMin: 3,
+                yMax: 4,
+                borderWidth: 0,
+                backgroundColor: 'rgba(203, 255, 107, 0.3)'
+              }, {
+                type: 'box',
+                drawTime: 'beforeDatasetsDraw',
+                yMin: 4,
+                yMax: 5,
+                borderWidth: 0,
+                backgroundColor: 'rgba(92, 255, 97, 0.3)'
+              }]
+            }
           }
+        }
       });
 
       let sleepChart = new Chart(schart, {
