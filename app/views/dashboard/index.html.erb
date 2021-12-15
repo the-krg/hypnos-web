@@ -134,6 +134,36 @@
                           stepSize: 1
                       }
                   }
+              },
+              plugins: {
+                 annotation: {
+                    annotations: [
+                        {
+                            type: 'box',
+                            drawTime: 'beforeDatasetsDraw',
+                            yMin: 0,
+                            yMax: 6,
+                            borderWidth: 0,
+                            backgroundColor: 'rgba(255, 105, 105, 0.3)'
+                        },
+                        {
+                            type: 'box',
+                            drawTime: 'beforeDatasetsDraw',
+                            yMin: 6,
+                            yMax: 9,
+                            borderWidth: 0,
+                            backgroundColor: 'rgba(92, 255, 97, 0.3)'
+                        },
+                        {
+                            type: 'box',
+                            drawTime: 'beforeDatasetsDraw',
+                            yMin: 9,
+                            yMax: 12,
+                            borderWidth: 0,
+                            backgroundColor: 'rgba(255, 215, 94, 0.3)'
+                        }
+                    ]
+                }
               }
           }
       });
