@@ -14,7 +14,7 @@
   <body class="height-without-bar">
     <%= yield %>
 
-    <footer class="page-footer teal">
+    <footer class="page-footer">
       <div class="row" id="frow" style="margin-bottom:0px;">
         <div class="col s12" style="padding-left:0px!important;padding-right:0px!important;">
           <ul class="tabs tabs-fixed-width transparent white-text">
@@ -23,11 +23,11 @@
                 <i class="material-icons">date_range</i>
               <% end %>
             </li>
-            <li class="tab col s3">
+            <%# <li class="tab col s3">
               <a href="#test2" class="white-text">
                 <i class="material-icons">bookmark_border</i>
               </a>
-            </li>
+            </li> %>
             <li class="tab col s3">
               <%= link_to root_path, class: 'white-text' do %>
                 <i class="material-icons">home</i>

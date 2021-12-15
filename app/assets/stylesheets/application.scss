@@ -17,10 +17,10 @@
 @import "bulma";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 
-html { background-color: #121212; }
+html { background-color: #301e38; }
 
 body {
-  background-color: #121212;
+  background-color: #301e38;
   min-height: 100vh;
   font-family: 'Open Sans', sans-serif;
 }
@@ -33,6 +33,10 @@ footer {
   position: fixed;
   bottom: 0;
   min-width: 100%;
+}
+
+.page-footer {
+  background: #8d5897 !important;
 }
 
 .header-spacing {
