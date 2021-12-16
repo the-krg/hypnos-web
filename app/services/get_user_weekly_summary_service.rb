@@ -23,7 +23,7 @@ class GetUserWeeklySummaryService
       day_quality << day[:quality]
       night_quality << night[:quality]
       average_quality << ((night[:quality] + day[:quality]) / 2.0)
-      labels << n_day.strftime('%a')
+      labels << I18n.localize(n_day, format: '%a', locale: 'pt-BR')
     end
 
     return {
