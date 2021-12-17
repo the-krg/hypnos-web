@@ -20,25 +20,29 @@
         type: 'bar',
         data: {
           labels: json.labels,
-          datasets: [{
-            label: 'Noite',
-            data: json.nights,
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }, {
-            label: 'Dia',
-            data: json.days,
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
-          }, {
+          datasets: [
+          // {
+          //   label: 'Noite',
+          //   data: json.nights,
+          //   backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          //   borderColor: 'rgba(54, 162, 235, 1)',
+          //   borderWidth: 0.2,
+
+          // }, {
+          //   label: 'Dia',
+          //   data: json.days,
+          //   backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          //   borderColor: 'rgba(255, 99, 132, 1)',
+          //   borderWidth: 0.2,
+
+          // },
+          {
             label: 'Média',
             data: json.average_quality,
             borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+            backgroundColor: 'rgba(75, 192, 192, 0.7)',
             borderWidth: 0.5,
-              type: 'line',
+            type: 'line',
           }]
         },
         options: {
@@ -123,22 +127,23 @@
                   borderColor: 'rgba(54, 162, 235, 1)',
                   borderWidth: 1
               },
-              {
-                  label: 'Qualidade de Sono',
-                  data: json.night_quality,
-                  borderColor: 'rgba(75, 192, 192, 1)',
-                  backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                  borderWidth: 0.5,
-                  type: 'line',
-              },
-              {
-                  label: 'Qualidade do Dia',
-                  data: json.day_quality,
-                  borderColor: 'rgb(192,37,34)',
-                  backgroundColor: 'rgba(192,43,36,0.2)',
-                  borderWidth: 0.5,
-                  type: 'line',
-              }]
+              // {
+              //     label: 'Qualidade de Sono',
+              //     data: json.night_quality,
+              //     borderColor: 'rgba(75, 192, 192, 1)',
+              //     backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              //     borderWidth: 0.5,
+              //     type: 'line',
+              // },
+              // {
+              //     label: 'Qualidade do Dia',
+              //     data: json.day_quality,
+              //     borderColor: 'rgb(192,37,34)',
+              //     backgroundColor: 'rgba(192,43,36,0.2)',
+              //     borderWidth: 0.5,
+              //     type: 'line',
+              // }
+              ]
           },
           options: {
               scales: {
